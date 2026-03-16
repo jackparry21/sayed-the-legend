@@ -1,0 +1,503 @@
+/* 1. Basic Reset to remove default browser gaps */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1. The Sunset Gradient Background */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #2d3436; /* Dark grey for readability */
+
+    /* A vibrant transition from deep orange to soft pink/purple */
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 40%, #fad0c4 60%, #ffd1ff 100%);
+    
+    /* Ensure the gradient stretches the full height */
+    min-height: 100vh;
+    background-attachment: fixed; /* Keeps the background still while you scroll */
+}
+
+/* 2. Content "Card" with a Glassmorphism effect */
+main {
+    /* This makes the box slightly see-through like frosted glass */
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(10px); /* Blurs the background behind the box */
+    
+    width: 90%;
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(255, 123, 137, 0.2);
+
+}
+
+/* 4. Simple Navigation Styling */
+nav ul {
+    background: #2d3436;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 1rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #0984e3; /* Changes color when you hover */
+}
+
+footer {
+    text-align: center;
+    margin-top: auto; /* Pushes footer to the bottom */
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #636e72;
+}
+
+/* Styling the Fact List */
+.fact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.fact-list li {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    border-left: 4px solid #ff9a9e; /* Pink sunset accent line */
+}
+
+/* Making the titles of the facts pop */
+.highlight {
+    display: block;
+    font-weight: bold;
+    color: #d63031;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.2rem;
+}
+
+/* Style the horizontal lines to be subtle sunset rays */
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ff9a9e, transparent);
+    margin: 2rem 0;
+}
+
+/* Header styling */
+.header-content {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.subtitle {
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Container for the taxi - keeps it above the name */
+.taxi-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 80px;
+    margin-top: 20px;
+}
+
+/* The Taxi Emoji Styling */
+.taxi-icon {
+    font-size: 50px; /* Big and bold like Sayed's personality */
+    position: absolute;
+    bottom: 5px;
+    /* This makes him drive across every 12 seconds */
+    animation: drive 6s linear infinite; 
+}
+
+/* The driving logic */
+@keyframes drive {
+    0% { 
+        left: -100px; 
+        transform: scaleX(-1); /* Faces the taxi to the right */
+    }
+    100% { 
+        left: 100%; 
+        transform: scaleX(-1); 
+    }
+}
+
+/* Container for the entire quote area to give it some breathing room */
+.quote-section {
+    text-align: center;
+    margin: 3rem 0; /* Adds space above and below the section */
+}
+
+/* The "Card" that holds the quote - creates the glass-like box */
+.quote-card {
+    background: rgba(255, 255, 255, 0.4); /* Transparent white background */
+    border: 2px solid #ffd1ff; /* Light purple/pink border */
+    padding: 2rem; /* Internal spacing around the text */
+    border-radius: 30px; /* Rounds the corners of the box */
+    position: relative; /* Allows us to position things (like the big quote) inside it */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooths out the hover effect below */
+}
+
+/* Update your big-quote to have more space */
+.big-quote {
+    font-size: 5rem;
+    color: #ff9a9e;
+    font-family: serif;
+    display: block;
+    opacity: 0.3;
+    
+    /* Change margin-bottom to a positive number to push the text DOWN */
+    margin-bottom: 0.5rem; 
+    
+    line-height: 1; /* Gives the icon its own height so it doesn't overlap */
+}
+
+/* Style the text inside the p tag */
+.quote-content p {
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: bold;
+    color: #2d3436;
+    margin: 0; /* Remove extra margins so it stays tight */
+    padding: 0 10px; /* Gives a little horizontal space */
+}
+/* Styling the actual quote text */
+.quote-content p {
+    font-size: 1.5rem; /* Larger text for the actual proverb */
+    font-style: italic; /* Makes it look like a formal quote */
+    font-weight: bold;
+    color: #2d3436; /* Dark grey for easy reading */
+    margin: 1rem 0; /* Adds vertical space around the text */
+}
+
+/* Styling the "— Sayed Chowdhury" credit line */
+.quote-author {
+    display: block;
+    text-transform: uppercase; /* Makes it all capital letters */
+    letter-spacing: 2px; /* Spaces out the letters for a "designer" look */
+    font-size: 0.8rem;
+    color: #d63031; /* Uses the stronger sunset red */
+    font-weight: bold;
+}
+
+/* Hover effect: makes the card lift and glow when you put your mouse over it */
+.quote-card:hover {
+    background: rgba(255, 255, 255, 0.7); /* Becomes more solid/bright */
+    transform: translateY(-5px); /* Lifts it up slightly */
+    border-color: #ff9a9e; /* Border changes to a pinker sunset color */
+}
+
+/* Gallery Grid Layout */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Make images fit perfectly */
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* This crops images neatly into boxes */
+    border-radius: 10px;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05); /* Slight zoom when hovering */
+}
+
+.caption {
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #d63031;
+    margin-top: 10px;
+}
+
+/* Custom class just for the image that gets cut off */
+.no-head-cut {
+    object-fit: contain !important; /* Forces the entire image to show */
+    background: #fad0c4; /* Optional: Sets a background color to fill the gaps */
+}
+
+/* The box that holds the slideshow */
+.slideshow-wrapper {
+    margin: 2rem 0;
+    width: 100%;
+    position: relative;
+}
+
+/* The scrolling container */
+.slideshow-container {
+    display: flex;
+    overflow-x: auto; /* Allows horizontal scrolling */
+    scroll-snap-type: x mandatory; /* The magic: forces images to "snap" */
+    scroll-behavior: smooth;
+    border-radius: 15px;
+    gap: 10px;
+    padding-bottom: 10px; /* Space for the scrollbar */
+}
+
+/* Hide the scrollbar for a cleaner look (optional) */
+.slideshow-container::-webkit-scrollbar {
+    height: 8px;
+}
+.slideshow-container::-webkit-scrollbar-thumb {
+    background: #ff9a9e;
+    border-radius: 10px;
+}
+
+/* Each individual slide */
+.slide {
+    flex: 0 0 100%; /* Each slide takes up 100% of the container width */
+    scroll-snap-align: start; /* Tells the slide where to snap */
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 600px;
+    object-fit: contain;
+    border-radius: 15px;
+    display: block;
+}
+
+/* Caption overlay for the slides */
+.slide-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(214, 48, 49, 0.8); /* Sunset red with transparency */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Container for the dots */
+.slideshow-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Individual Dot Styling */
+.slideshow-dots a {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(214, 48, 49, 0.3); /* Faded red */
+    border-radius: 50%; /* Makes them circles */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid #d63031;
+}
+
+/* When you hover or click the dot */
+.slideshow-dots a:hover,
+.slideshow-dots a:active {
+    background-color: #d63031; /* Bright red */
+    transform: scale(1.2);
+}
+
+/* Ensure the dots don't disappear on scroll */
+.slideshow-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Container for the social links */
+.socials-container {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* Vertical stack of buttons */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between buttons */
+    max-width: 400px; /* Keeps it tight like an iPhone screen */
+    margin: 2rem auto; /* Centers the list on the page */
+}
+
+/* Base style for all social buttons */
+.social-btn {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 50px; /* Makes the buttons pill-shaped */
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* Specific colors for each platform */
+.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.tiktok {
+    background-color: #000000;
+}
+
+.youtube {
+    background-color: #d63031;
+}
+
+.email {
+    background-color: #230765; /* Your signature sunset red */
+}
+
+/* Hover effect: Makes buttons pop when hovered */
+.social-btn:hover {
+    transform: scale(1.05); /* Grows slightly */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Adds a shadow glow */
+    border-color: white;
+}
+
+/* --- Football Page Prank Styles --- */
+
+.prank-container {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+/* Hide the actual checkbox */
+#prank-trigger {
+    display: none;
+}
+
+/* The wrapper that holds both images */
+.image-wrapper {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    border: 5px solid #d63031;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.image-wrapper img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+/* Initially hide the Man Utd photo */
+.prank-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+/* THE MAGIC: When the hidden checkbox is "checked" (clicked) */
+#prank-trigger:checked ~ .image-wrapper .normal-img {
+    opacity: 0; /* Hide Liverpool Sayed */
+}
+
+#prank-trigger:checked ~ .image-wrapper .prank-img {
+    opacity: 1; /* Reveal Man Utd Sayed */
+}
+
+/* Music Player Styling */
+.music-player {
+    background: #000;
+    color: gold;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border: 2px solid gold;
+}
+/* Styling for the roast disclaimer */
+.disclaimer-section {
+    margin: 40px auto;
+    max-width: 600px;
+}
+
+.disclaimer-box {
+    background-color: #f9f9f9; /* Off-white, paper-like color */
+    border: 1px solid #ccc;
+    padding: 30px;
+    font-family: 'Courier New', Courier, monospace; /* Makes it look like an old typewriter document */
+    color: #333;
+    text-align: left;
+    box-shadow: 5px 5px 0px #000; /* Flat "retro" shadow */
+}
+
+.disclaimer-box h6 {
+    text-align: center;
+    text-decoration: underline;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.evidence-list {
+    margin: 20px 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* The red "Stamp" look for the verdict */
+.stamp {
+    color: #d63031;
+    font-weight: bold;
+    border: 3px solid #d63031;
+    display: inline-block;
+    padding: 10px;
+    transform: rotate(-5deg); /* Tilts the "stamp" slightly */
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+/* Styling for the trap link at the bottom of the disclaimer */
+.dispute-text {
+    margin-top: 25px;
+    font-size: 0.85rem;
+    border-top: 1px dashed #ccc;
+    padding-top: 15px;
+}
+
+.trap-link {
+    color: #d63031; /* Man Utd Red */
+    font-weight: bold;
+    text-decoration: underline;
+    transition: all 0.2s ease;
+}
+
+.trap-link:hover {
+    color: #000;
+    background-color: #ffd700; /* Gold highlight on hover */
+    padding: 2px 5px;
+    border-radius: 4px;
+}
